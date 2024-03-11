@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Grade</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/create" class="active" >Create Grade</a>
+
+      </div>
+      <div class="form-add-new">
+        <form action="/update" method="post">
+        <fieldset>
+            <legend> Update Grade</legend>
+            <div class="input-group d-none">
+                <label>ID: </label>
+                <input type="text"  name="svId" value="<%= svEdit.id%>">
+            </div>
+            <!-- <div class="input-group">
+                <label>StudentID: </label>
+                <input type="text"  name="" value="<%= svEdit.studentId%>">
+            </div>
+            <div>
+                <label>CourseID: </label>
+                <input type="text" id="" name=""
+                value="<%= svEdit.courseId%>">
+            </div> -->
+            <div class="input-group">
+                <label>Grade: </label>
+                <input type="text" name="grade"
+                value="<%= svEdit.grade%>">
+            </div>
+            <div>
+                <button>Update</button>
+            </div>
+       </fieldset>
+       
+    </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Info</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/search" class="active" >Search Info</a>
+
+      </div>
+      <div class="form-add-new">
+        <form action="/search" method="get">
+        <fieldset>
+            <legend> Search Info</legend>
+            <div class="input-group">
+                <label>StudentID: </label>
+                <input type="text" id="studentId" name="studentId">
+            </div>
+            <div class="input-group">
+                <label>CourseID: </label>
+                <input type="text" name="courseId">
+            </div>
+            <div class="input-group">
+                <h2>Grade:</h2>
+                <input type="text" name="grade" value="<%= svEdit.grade%>">
+            </div>
+            <div>
+                <button>Search</button>
+            </div>
+       </fieldset>
+       
+    </form>
+    </div>
+</body>
+</html>

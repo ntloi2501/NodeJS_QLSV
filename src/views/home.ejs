@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        table {
+            background-color: white;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: #ccc;}
+.title {
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+button {
+  padding: 8px;
+  font-size: 12px;
+  line-height: 1;
+  border: 1px solid #ccc;
+
+}
+button:hover {
+  background-color: rgb(143, 209, 143);
+}
+</style>
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="/">Home</a>
+        <a href="/search">Search Info</a>
+        <a href="/create">Create Student</a>
+    </div>
+    <div class="table-container">
+        <div class="title">List Student</div>
+    <table>
+        <tr>
+          <th>ID</th>
+          <th>StudentID</th>
+          <th>CourseID</th>
+          <th>Grade</th>
+          <th>Actions</th>
+        </tr>
+          <% for (let i=0; i < listStudent.length; i++) { %>
+            <tr>
+              <td><%= listStudent[i].id %></td>
+              <td><%= listStudent[i].studentId %></td>
+              <td><%= listStudent[i].courseId %></td>
+              <td><%= listStudent[i].grade %></td>
+              <td>
+                  <a href="/update/<%= listStudent[i].id %>">Edit</a>
+
+                  <form action="delete-student/<%= listStudent[i].id %>" method="post">
+                  <button>Delete</button>
+                </form>
+              </td>
+            </tr>
+          <% } %>
+
+      </table>
+    </div>
+</body>
+
+</html>

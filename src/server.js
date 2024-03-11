@@ -1,18 +1,27 @@
+require('dotenv').config();
 const express = require ('express') //commonjs
 const path = require ('path')
 const app = express() //app của express
+const hostname = process.env.HOST_NAME
+const port = process.env.PORT  || 50000 //khai báo port 
+const configViewEngine = require('./config/viewEngine')
+const webRoutes = require('./routes/web')
 
-const port = 3000 //khai báo port 
+const connection = require('./config/db')
 
-//config template engine
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'ejs')
+//config req.body
+app.use(express.json())
+app.use(express.urlencoded({ extended : true}))
+//config template 
+configViewEngine(app)
+
+//
+//https://expressjs.com/en/starter/static-files.html-->link static file
+//phục vụ các tệp tin tĩnh như hình ảnh, CSS, JavaScript, bạn có thể sử dụng một middleware như express.static
 //khai báo route
-app.get  ('/', (req, res) => {
-    // res.send("<h1>Hello World\n Lập Trình Backend Webserver</h1>")
-    res.render('sample.ejs')
-})
-app.listen(port, () => {
+app.use('/', webRoutes)
+
+app.listen(port, hostname, () => {
     console.log(`app listening on port ${port}`)
 })
 
